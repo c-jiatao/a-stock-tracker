@@ -1,7 +1,10 @@
 import os
+import sys
 import requests
 import tushare as ts
 from datetime import datetime
+
+
 
 # 配置参数
 TUSHARE_TOKEN = os.getenv('f4c0087186a55b886bdb5357f2ecbed49645621807accbe75b1e99b8')
@@ -9,6 +12,27 @@ FEISHU_APP_ID = os.getenv('cli_a819f9a899bed00d')
 FEISHU_APP_SECRET = os.getenv('tQCP2GE4BXw0RlQctRS7peUQiAqe1PXG')
 FEISHU_APP_TOKEN = os.getenv('JsWqbseLxaktydsnElVcIGCCnLf')
 FEISHU_TABLE_ID = os.getenv('tbljZZCk6C97kLkW')
+
+print("===== 环境变量检查 =====")
+print(f"TUSHARE_TOKEN: {os.getenv('TUSHARE_TOKEN') is not None}")
+print(f"FEISHU_APP_ID: {os.getenv('FEISHU_APP_ID') is not None}")
+print(f"FEISHU_APP_SECRET: {os.getenv('FEISHU_APP_SECRET') is not None}")
+print(f"FEISHU_APP_TOKEN: {os.getenv('FEISHU_APP_TOKEN')}")
+print(f"FEISHU_TABLE_ID: {os.getenv('FEISHU_TABLE_ID')}")
+
+# 在 main() 函数开始处添加
+def main():
+    print("===== 脚本开始执行 =====")
+    # 原有代码...
+    
+    # 在 try/except 块中执行核心逻辑
+    try:
+        # 原有代码...
+    except Exception as e:
+        import traceback
+        print(f"!!! 发生错误: {str(e)}")
+        traceback.print_exc()
+        sys.exit(1)  # 确保返回错误代码
 
 def get_feishu_token():
     """获取飞书 tenant_access_token"""
